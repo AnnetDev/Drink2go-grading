@@ -3,7 +3,7 @@ name: Deploy on pull request
 on:
   pull_request_target:
     branches:
-      - '*'
+      - 'master'
 
 jobs:
   deploy-on-pull-request:
