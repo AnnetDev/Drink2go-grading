@@ -1,5 +1,0 @@
-**/vendor/**/*.js
-backstop_data/
-test-config/
-engine_scripts/
-run-test.js
