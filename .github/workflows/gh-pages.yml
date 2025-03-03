@@ -5,6 +5,7 @@ on:
     branches:
       - master
 
+
 jobs:
   deploy:
     name: Deploy
@@ -19,26 +20,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: 'package.json'
-
-      - name: Restore cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: cache-npm-${{ hashFiles('./package-lock.json') }}
-          restore-keys: cache-npm-
-
       - name: Install dependencies
-        run: npm ci
-
-      - name: Build project
-        run: npm run build
+        run: |
+          npm ci
+          npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./build
+          folder: build
           branch: gh-pages
+
