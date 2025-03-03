@@ -3,7 +3,7 @@ name: Deploy on pull request
 on:
   pull_request_target:
     branches:
-      - '*'
+      - 'master'
 
 jobs:
   deploy-on-pull-request:
@@ -42,6 +42,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./build
+          folder: build
           branch: gh-pages
           target-folder: ${{ github.event.pull_request.number }}
